@@ -21,16 +21,16 @@ RUN echo 8933bad161af4178b1185d1a37fbf41ea5269c55 >> $ANDROID_HOME/licenses/andr
 # Install sdk elements
 COPY tools /opt/tools
 ENV PATH ${PATH}:/opt/tools
-RUN echo y | android update sdk --all --no-ui --filter android-${ANDROID_TARGET_SDK}
-RUN echo y | android update sdk --all --no-ui --filter platform-tools
-RUN echo y | android update sdk --all --no-ui --filter build-tools-${ANDROID_BUILD_TOOLS}
-RUN echo y | android update sdk --all --no-ui --filter sys-img-armeabi-v7a-android-${ANDROID_TARGET_SDK}
-RUN echo y | android update sdk --all --no-ui --filter tools
-RUN echo y | android update sdk --all --no-ui --filter extra-google-google-play-services
-RUN echo y | android update sdk --all --no-ui --filter extra-android-m2repository
-RUN echo y | android update sdk --all --no-ui --filter extra-google-m2repository
-RUN echo y | android update sdk --all --no-ui --filter extra-android-support
-RUN echo y | android update sdk --all --no-ui --filter addon-google_apis_x86-google-21
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter android-${ANDROID_TARGET_SDK}
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter platform-tools
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter build-tools-${ANDROID_BUILD_TOOLS}
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter sys-img-armeabi-v7a-android-${ANDROID_TARGET_SDK}
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter tools
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter extra-google-play-services
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter extra-android-m2repository
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter extra-google-m2repository
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter extra-android-support
+RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter addon-google_apis_x86-google-21
 
 RUN which adb
 RUN which android

@@ -25,7 +25,6 @@ RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter andro
 RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter platform-tools
 RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter build-tools-${ANDROID_BUILD_TOOLS}
 RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter sys-img-armeabi-v7a-android-${ANDROID_TARGET_SDK}
-RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter tools
 RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter extra-google-play-services
 RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter extra-android-m2repository
 RUN echo y | $ANDROID_HOME/tools/android update sdk --all --no-ui --filter extra-google-m2repository

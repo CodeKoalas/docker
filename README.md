@@ -41,6 +41,7 @@ docker run --tty --interactive --volume=$(pwd):/opt/workspace --workdir=/opt/wor
 		Contributors:
 		 * Jacek Marchwicki  <jacek.marchwicki@gmail.com>
 		 * Karol Wojtaszek <karol@appunite.com>
+		 * Donnie West <donnie@codekoalas.com>
 		
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

@@ -18,7 +18,7 @@ Contains:
 ## Build image
 
 ```bash
-docker build -t jacekmarchwicki/android .
+docker build -t codekoalas/docker-android-java8-ci .
 ```
 
 If building fail you can debug via where `1b372b1f76f2` is partial build
@@ -27,17 +27,11 @@ If building fail you can debug via where `1b372b1f76f2` is partial build
 docker run --tty --interactive --rm 1b372b1f76f2 /bin/bash
 ```
 
-## Push build version to repository
-
-```bash
-docker push jacekmarchwicki/android:java8
-```
-
 ## Usage
 Change directory to your project directory, than run:
 
 ```bash
-docker run --tty --interactive --volume=$(pwd):/opt/workspace --workdir=/opt/workspace --rm jacekmarchwicki/android:java8  /bin/sh -c "./gradlew build"
+docker run --tty --interactive --volume=$(pwd):/opt/workspace --workdir=/opt/workspace --rm codekoalas/docker-android-java8-ci /bin/sh -c "./gradlew build"
 ```
 
 # License

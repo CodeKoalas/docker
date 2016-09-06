@@ -15,23 +15,22 @@ RUN cd /opt && wget --output-document=android-sdk.tgz --quiet http://dl.google.c
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
-
 RUN mkdir $ANDROID_HOME/licenses
 RUN echo 8933bad161af4178b1185d1a37fbf41ea5269c55 >> $ANDROID_HOME/licenses/android-sdk-license
 
 # Install sdk elements
 COPY tools /opt/tools
 ENV PATH ${PATH}:/opt/tools
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter platform-tools"]
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter tools"]
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter extra-google-google-play-services"]
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter extra-android-m2repository"]
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter extra-google-m2repository"]
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter extra-android-support"]
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter addon-google_apis_x86-google-21"]
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter build-tools-${ANDROID_BUILD_TOOLS}"]
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter android-${ANDROID_TARGET_SDK}"]
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter sys-img-armeabi-v7a-android-${ANDROID_TARGET_SDK}"]
+RUN echo y | android update sdk --all --no-ui --filter android-${ANDROID_TARGET_SDK}
+RUN echo y | android update sdk --all --no-ui --filter platform-tools
+RUN echo y | android update sdk --all --no-ui --filter build-tools-${ANDROID_BUILD_TOOLS}
+RUN echo y | android update sdk --all --no-ui --filter sys-img-armeabi-v7a-android-${ANDROID_TARGET_SDK}
+RUN echo y | android update sdk --all --no-ui --filter tools
+RUN echo y | android update sdk --all --no-ui --filter extra-google-google-play-services
+RUN echo y | android update sdk --all --no-ui --filter extra-android-m2repository
+RUN echo y | android update sdk --all --no-ui --filter extra-google-m2repository
+RUN echo y | android update sdk --all --no-ui --filter extra-android-support
+RUN echo y | android update sdk --all --no-ui --filter addon-google_apis_x86-google-21
 
 RUN which adb
 RUN which android
